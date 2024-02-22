@@ -26,3 +26,41 @@ replay_pid*
 
 #react
  /node_modules
+
+#spring
+HELP.md
+target/
+spring/.mvn
+spring/src/main/target
+spring/src/test/target
+spring/!.mvn/wrapper/maven-wrapper.jar
+spring/!**/src/main/**/target/
+spring/!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
