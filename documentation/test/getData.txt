@@ -1,0 +1,6 @@
+localhost:9091/getData (get method):
+{
+    "name":"pratik"
+}
+
+
