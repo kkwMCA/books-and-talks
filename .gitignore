@@ -27,13 +27,6 @@ replay_pid*
 #react
  /node_modules
 
-<<<<<<< HEAD
- HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-=======
 #spring
 HELP.md
 target/
@@ -43,7 +36,6 @@ spring/src/test/target
 spring/!.mvn/wrapper/maven-wrapper.jar
 spring/!**/src/main/**/target/
 spring/!**/src/test/**/target/
->>>>>>> f7d0f11b29f93b2a7cf069575d860afa9ecedb97
 
 ### STS ###
 .apt_generated
