@@ -26,6 +26,7 @@ function Data_Component() {
       ) : (
         <div>
           <h2>Name: {data.name}</h2>
+          <h2>Name: {data.name}</h2>
         </div>
       )}
     </div>
