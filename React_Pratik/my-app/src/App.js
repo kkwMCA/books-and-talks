@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function App() {
+function Data_Component() {
+  const [data, setData] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch data from the Spring API
+    axios.get('https://:localhost:9091/getData')
+      .then(response => {
+      
+        setData(response.data);
+        setLoading(false);
+      })
+      .catch(error => {
+
+        console.error('Error fetching data: ', error);
+        setLoading(false);
+      });
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {loading ? (
+        <p>Loading data...</p>
+      ) : (
+        <div>
+          <h2>Name: {data.name}</h2>
+        </div>
+      )}
     </div>
   );
 }
 
-export default App;
+export default Data_Component;
