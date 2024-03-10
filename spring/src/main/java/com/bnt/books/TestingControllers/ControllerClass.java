@@ -19,10 +19,7 @@ class ControllerClass{
     @GetMapping("/getData")
     public Object getSomething(){
         HashMap hashMap=new HashMap<>();
-        hashMap.put("name1", "Pratik");
-        hashMap.put("name2", "Sumedh");
-        hashMap.put("name3", "Madhura");
-        hashMap.put("name4", "Sayali");
+        hashMap.put("name", "pratik");
         return hashMap;
     } 
 
