@@ -7,7 +7,7 @@ function Data_Component() {
 
   useEffect(() => {
     // Fetch data from the Spring API
-    axios.get('https://:localhost:9091/getData')
+    axios.get('http://localhost:9091/getData')
       .then(response => {
       
         setData(response.data);
@@ -25,6 +25,7 @@ function Data_Component() {
         <p>Loading data...</p>
       ) : (
         <div>
+          <h2>Name: {data.name}</h2>
           <h2>Name: {data.name}</h2>
         </div>
       )}
