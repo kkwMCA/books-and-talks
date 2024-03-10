@@ -25,8 +25,10 @@ function Data_Component() {
         <p>Loading data...</p>
       ) : (
         <div>
-          <h2>Name: {data.name}</h2>
-          <h2>Name: {data.name}</h2>
+          <h2>Member 1:: {data.name1}</h2>
+          <h2>Member 2:: {data.name2}</h2>
+          <h2>Member 3:: {data.name3}</h2>
+          <h2>Member 4:: {data.name4}</h2>
         </div>
       )}
     </div>
