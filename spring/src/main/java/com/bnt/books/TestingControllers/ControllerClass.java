@@ -4,14 +4,17 @@ import java.util.HashMap;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.websocket.server.PathParam;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-
 @RestController
 class ControllerClass{
+
     //to get data 
     @GetMapping("/getData")
     public Object getSomething(){
@@ -43,5 +46,9 @@ class ControllerClass{
         return id;
     }
     
-
+    @GetMapping("/getEnv")
+    public String getEnv(@PathParam(value = "val") String val){
+        return val;
+    }
+    
 }
