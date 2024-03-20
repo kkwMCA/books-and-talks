@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 class ControllerClass{
 
-    //to get data 
+    //to get data ,pratik will get data
     @GetMapping("/getData")
     public Object getSomething(){
         HashMap hashMap=new HashMap<>();
@@ -25,13 +25,16 @@ class ControllerClass{
 
     //send data
     @PostMapping("/send")
-    public void postMethodName(@RequestBody HashMap<String,Object> hashMap) {
+    public Object postMethodName(@RequestBody HashMap<String,Object> hashMap) {
         //TODO: process POST request
-        System.out.println(hashMap);
+        hashMap.put("name", "sumedh");
+
+        return hashMap;
+        //db
         //return entity;
     }
     
-    //send and get data
+    //send and get data,pratik will post
     @PostMapping("/sendGet")
     public HashMap sendGet(@RequestBody HashMap<String,Object> hashMap) {
         //TODO: process POST request

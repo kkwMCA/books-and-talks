@@ -1,0 +1,21 @@
+post:
+
+    {
+        username:{
+            post:"data",
+            comm:"",
+            like:3,
+            dislike:13,
+            desc:""
+            file:""
+            date and time:""
+        }
+        .
+        .
+        .
+        .
+        .
+
+    }
+
+    
