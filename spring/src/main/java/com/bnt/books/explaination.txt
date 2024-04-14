@@ -1,0 +1,14 @@
+/*Books&TalksApisApplication.java ::
+ This file will contain the main application
+
+config package : for setting the spring security configurations or even anything related to mvc configurations will we create a class in "config"
+controllers package: for keeping the controllers 
+
+exceptions package: writing all the exceptions in this package.
+
+payloads package: 
+
+repositories package: will consist all the repositories .
+services package: will consist all the services
+utils package: will consist all the utilities, helper class or util class.
+*/
