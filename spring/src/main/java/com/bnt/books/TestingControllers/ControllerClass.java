@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 class ControllerClass{
 
-    @Value("${name}")
-    String name;
+  
     //to get data ,pratik will get data
     @GetMapping("/getData")
     public Object getSomething(){

@@ -2,6 +2,7 @@ package com.bnt.books.USER.POJO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -16,10 +17,11 @@ create table if not exists user(
 */
 
 @Entity
-@Table(name="user")
+@Table(name="users")
 @Data
 public class UserName {
     
+    @Id
     @Column(name = "username",nullable = false)
     private String username;
 

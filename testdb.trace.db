@@ -1,0 +1,9 @@
+2024-04-16 22:15:24.036559+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table [*]user (username varchar(255) not null, profiledesc varchar(255) not null, email varchar(255) not null, nopost varchar(255) not null, primary key (username))"; expected "identifier"; SQL statement:
+create table user (username varchar(255) not null, profiledesc varchar(255) not null, email varchar(255) not null, nopost varchar(255) not null, primary key (username)) [42001-224]
+2024-04-16 22:15:25.025069+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table if not exists [*]user( username varchar(100) not null unique, email varchar(100) not null unique, noPost varchar(100) not null, profiledesc text not null, primary key(username) )"; expected "identifier"; SQL statement:
+create table if not exists user( username varchar(100) not null unique, email varchar(100) not null unique, noPost varchar(100) not null, profiledesc text not null, primary key(username) ) [42001-224]
+2024-04-16 22:16:15.659159+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table if not exists [*]user( username varchar(100) not null unique, email varchar(100) not null unique, noPost varchar(100) not null, profiledesc text not null, primary key(username) )"; expected "identifier"; SQL statement:
+create table if not exists user( username varchar(100) not null unique, email varchar(100) not null unique, noPost varchar(100) not null, profiledesc text not null, primary key(username) ) [42001-224]

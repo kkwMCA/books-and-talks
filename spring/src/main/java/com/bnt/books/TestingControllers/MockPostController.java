@@ -14,20 +14,20 @@ public class MockPostController {
     HashMap<String,Object> hashMap;
 
     
-    @GetMapping("/getPost")
-    public HashMap getPost() {
-        hashMap=new HashMap<>();
-        String str="hello, my name is sumedh ahire and i am doing java!";
-        PostObject postObject=PostObject.builder().userid(100)
-                                            .community("java")
-                                            .data(str)
-                                            .description("about me")
-                                            .build();
+    // @GetMapping("/getPost")
+    // public HashMap getPost() {
+    //     hashMap=new HashMap<>();
+    //     String str="hello, my name is sumedh ahire and i am doing java!";
+    //     PostObject postObject=PostObject.builder().userid(100)
+    //                                         .community("java")
+    //                                         .data(str)
+    //                                         .description("about me")
+    //                                         .build();
         
-                                            hashMap.put("1",postObject);
-        System.out.println(hashMap);
-        return hashMap;
-    }
+    //                                         hashMap.put("1",postObject);
+    //     System.out.println(hashMap);
+    //     return hashMap;
+    // }
     
 }
 //
