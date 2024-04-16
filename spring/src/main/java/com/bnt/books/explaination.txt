@@ -64,4 +64,26 @@ create a class "post.java"
 7)@Getter
 8)@Setter
 
+/*
+ * @Entity annotation: is used to mark this class as a JPA entity.
+ * It indicates that instances of this class will be mapped to database records.
+ * 
+ * @Table(name = "table_name")
+ * make sure this matches the actual table name in DB
+ * 
+ * @Id : indicites the primary key.
+ * Every JPA enttity should have the primary key.
+ * 
+ * @GeneratedValue :
+ * This annotation specifies how to the primary key values are generated on
+ * auto-incrementation
+ * 
+ * @Column : used to map a class field to a database column.
+ * 
+ * @NoArgsConstructor : No Argument Constructor (Lombok)
+ * 
+ * @Getter (Lombok)
+ * 
+ * @Setter (Lombok)
+ */
 ----------------------------------------------------------------
