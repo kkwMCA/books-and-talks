@@ -87,3 +87,8 @@ create a class "post.java"
  * @Setter (Lombok)
  */
 ----------------------------------------------------------------
+spring.jpa.hibernate.ddl-auto = update in application.properties file
+removed the explicit declaration of MySQLDialect
+reset the spring.jpa.hibernate.ddl-auto=upate in "application.properties 
+Rewrote -annotated the @NoArgsConstructor in "post.java"
+added spring.jpa.show-sql = true in "application.properties"
