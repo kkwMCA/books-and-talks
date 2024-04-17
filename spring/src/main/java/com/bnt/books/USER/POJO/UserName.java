@@ -22,15 +22,11 @@ create table if not exists user(
 public class UserName {
     
     @Id
-    @Column(name = "username",nullable = false)
     private String username;
 
-    @Column(name="email",nullable = false)
     private String email;
 
-    @Column(name="nopost",nullable = false)
     private String noPost;
 
-    @Column(name="profiledesc",nullable = false)
     private String desc;
 }
