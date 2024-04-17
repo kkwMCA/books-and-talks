@@ -7,3 +7,12 @@ create table if not exists user( username varchar(100) not null unique, email va
 2024-04-16 22:16:15.659159+05:30 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table if not exists [*]user( username varchar(100) not null unique, email varchar(100) not null unique, noPost varchar(100) not null, profiledesc text not null, primary key(username) )"; expected "identifier"; SQL statement:
 create table if not exists user( username varchar(100) not null unique, email varchar(100) not null unique, noPost varchar(100) not null, profiledesc text not null, primary key(username) ) [42001-224]
+2024-04-17 10:58:44.397293+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into comment [*]value (10,'{""sumedh"": ""hello""}',1)"; expected "., (, OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+insert into comment value (10,'{"sumedh": "hello"}',1) [42001-224]
+2024-04-17 10:59:45.189699+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table if not exists comment( commentid number not null unique, postid number not null unique, commentdata text[*]"; expected "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table if not exists comment( commentid number not null unique, postid number not null unique, commentdata text [42001-224]
+2024-04-17 11:00:23.649122+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "insert into comment [*]value (10,'{""sumedh"": ""hello""}',1)"; expected "., (, OVERRIDING USER VALUE, OVERRIDING SYSTEM VALUE, DIRECT, DEFAULT VALUES, VALUES, SET, WITH, (, SELECT, TABLE, VALUES"; SQL statement:
+insert into comment value (10,'{"sumedh": "hello"}',1) [42001-224]

@@ -17,3 +17,11 @@ create table if not exists post(
     description text not null,
     primary key(postid)
 );
+
+
+create table if not exists comment(
+    commentid number not null unique,
+    postid number not null unique,
+    commentdata text,
+    primary key(commentid)
+);
