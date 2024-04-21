@@ -29,4 +29,6 @@ public class UserName {
     private String noPost;
 
     private String desc;
+
+    private String password;
 }
