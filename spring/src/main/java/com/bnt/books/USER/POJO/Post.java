@@ -17,11 +17,13 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long postid;
     
+    private String username;
+
     private String postname;
 
-    
     private String img;
 
     private String description;
 
+    private Long likes;
 }

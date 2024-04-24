@@ -52,6 +52,8 @@ public class MockNewPost {
         post.setDescription(addpost.get("desc"));
         post.setPostname(addpost.get("name"));
         post.setImg(addpost.get("data"));
+        post.setUsername(addpost.get("username"));
+        post.setLikes(Long.parseLong("0"));
 
         postService.save(post);
         post=null;
