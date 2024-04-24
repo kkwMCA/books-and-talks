@@ -46,10 +46,15 @@ public class MockNewPost {
     
 
     @PostMapping("/post")
-    public String postMethodName(@RequestBody String entity) {
+    public void postMethodName(@RequestBody HashMap<String,String> addpost) {
         
-        
-        return entity;
+        Post post=new Post();
+        post.setDescription(addpost.get("desc"));
+        post.setPostname(addpost.get("name"));
+        post.setImg(addpost.get("data"));
+
+        postService.save(post);
+        post=null;
     }
     
 }

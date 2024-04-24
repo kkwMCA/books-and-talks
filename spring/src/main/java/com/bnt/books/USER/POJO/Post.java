@@ -19,10 +19,9 @@ public class Post {
     
     private String postname;
 
-    @Lob
-    private byte[] img;
+    
+    private String img;
 
     private String description;
 
-    private String password;
 }
