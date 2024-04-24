@@ -1,0 +1,74 @@
+/*Books&TalksApisApplication.java ::
+ This file will contain the main application
+ Add dependency in "pom.xml" 
+ Added a BooksAndTalksApisApplication.java 
+ A dependency "spring-boot-starter" for "SpringApplication "for reading the resources in "BooksAndTalksApisApplication.java"
+     <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+
+ -------------------------------------------------------------------
+
+config package : for setting the spring security configurations or even anything related to mvc configurations will we create a class in "config"
+controllers package: for keeping the controllers 
+
+exceptions package: writing all the exceptions in this package.
+
+payloads package: 
+
+repositories package: will consist all the repositories .
+services package: will consist all the services
+utils package: will consist all the utilities, helper class or util class.
+*/
+---------------------------------------------------------------------------------------------
+resources > application.properties>
+for @Entity annotation
+include a dependency for jpa in pom.xml 
+javax.persistence package contains Java Persistence API (JPA) classes and interfaces, you need to include the JPA API in your project.
+
+<!-- For Maven -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+----------------------------------------------------------------
+Ctrl+Shift+X =install "Lombok " .
+In "pom.xml"
+add dependency if absent in
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <!--<version> 1.18.32</version>-->
+</dependency>
+if lombok not working : try adding the following line in settings.json file
+"java.jdt.ls.lombokSupport.enabled": true
+------------------------------------------------------------------------------------------------
+add the mysql dependency in pom.xml file
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.26</version> <!-- Use the appropriate version -->
+</dependency>
+
+----------------------------------------------------------------
+com.books_and_talks.books>entities
+create a class "post.java"
+1) @Entity annotation (include the JPA)
+2) @Table(name = "table-name")
+3) @Id annotation
+4) @GeneratedValue
+5) @Column annotation
+6) @NoArgConstructor : Lombok installation
+7)@Getter
+8)@Setter
+
+----------------------------------------------------------------
+1)Entity Package(folder):
+    >>Post.java
+2)Services Package(folder):
+    >>PostService.java
+    >>PostServiceImpl.java
+3)Repository package(folder):
+    >>PostRepo.java
