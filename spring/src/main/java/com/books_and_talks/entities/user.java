@@ -1,5 +1,6 @@
 package com.books_and_talks.entities;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
