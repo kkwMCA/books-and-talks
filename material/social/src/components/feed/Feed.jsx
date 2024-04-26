@@ -4,8 +4,11 @@ import "./feed.css";
 // import { Posts } from "../../dummyData";
 import React, { useState, useEffect } from "react";
 
-function App() {
-  const url = "http://localhost:8081";
+
+
+export default function Feed() {
+
+  const url = "http://localhost:8081/getAllPost";
   const [data, setData] = useState([]);
 
   const fetchInfo = () => {
@@ -18,14 +21,12 @@ function App() {
   useEffect(() => {
     fetchInfo();
   }, []);
-
-export default function Feed() {
   return (
     <div className="feed">
       <div className="feedWrapper">
         <Share />
-        {Posts.map((p) => (
-          <Post key={p.id} post={p} />
+        {data.map((p) => (
+          <Post key={p.} post={p} />
         ))}
       </div>
     </div>
