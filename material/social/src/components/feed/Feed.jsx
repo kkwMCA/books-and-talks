@@ -3,32 +3,33 @@ import Share from "../share/Share";
 import "./feed.css";
 // import { Posts } from "../../dummyData";
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-
-
+const baseURL = "http://localhost:8081/getAllPost";
 export default function Feed() {
 
-  const url = "http://localhost:8081/getAllPost";
-  const [data, setData] = useState([]);
+  const [post, setPost] = React.useState(null);
 
-  const fetchInfo = () => {
-    return fetch(url)
-      .then((res) => res.json())
-      .then((d) => setData(d))
-  }
-
-
-  useEffect(() => {
-    fetchInfo();
+  React.useEffect(() => {
+    axios.get(baseURL).then((response) => {
+      setPost(response.data);
+    });
   }, []);
+
+  if (!post) return null;
+
   return (
-    <div className="feed">
-      <div className="feedWrapper">
-        <Share />
-        {data.map((p) => (
-          <Post key={p.} post={p} />
-        ))}
-      </div>
+    <div>
+      <h1>{post.username}</h1>
+      
     </div>
   );
+  // return (
+  //   <div className="feed">
+  //     <div className="feedWrapper">
+  //       <Share />
+  //       <p>data.postname</p>
+  //     </div>
+  //   </div>
+  // );
 }
