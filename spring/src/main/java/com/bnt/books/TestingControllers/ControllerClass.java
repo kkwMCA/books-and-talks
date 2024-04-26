@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 class ControllerClass{
 
   
+    @Deprecated
     //to get data ,pratik will get data
     @GetMapping("/getData")
     public Object getSomething(){
