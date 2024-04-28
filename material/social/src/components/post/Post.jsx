@@ -4,8 +4,18 @@ import { Users } from "../../dummyData";
 import { useState } from "react";
 
 export default function Post({ post }) {
-  const [like,setLike] = useState(post.like)
-  const [isLiked,setIsLiked] = useState(false)
+  const [like,setLike] = useState(post.like);
+  const [user,setUser] = useState({});
+  const [isLiked,setIsLiked] = useState(false);
+
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get("User api");
+      setUsers(res.data)
+    };
+    fetchUser();
+  }, []);
 
   const likeHandler =()=>{
     setLike(isLiked ? like-1 : like+1)
@@ -18,11 +28,11 @@ export default function Post({ post }) {
           <div className="postTopLeft">
             <img
               className="postProfileImg"
-              src={Users.filter((u) => u.id === post?.userId)[0].profilePicture}
+              src={user.profilePicture}
               alt=""
             />
             <span className="postUsername">
-              {Users.filter((u) => u.id === post?.userId)[0].username}
+              {user.username}
             </span>
             <span className="postDate">{post.date}</span>
           </div>
