@@ -43,8 +43,8 @@ export default function Feed() {
         <h1>Name: {post.postname}</h1>
         {/* <h1>Name: {post.data}</h1> */}
         <img src={post.data} ></img>
-        <h1>Name: {post.description} </h1>
-        <h1>Name: {post.comment}</h1>
+        <h1>description: {post.description} </h1>
+        <h1>comments: {post.comment}</h1>
       </div>
     ))}
   </div>
