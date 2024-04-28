@@ -8,22 +8,64 @@ import axios from "axios";
 const baseURL = "http://localhost:8081/getAllPost";
 export default function Feed() {
 
-  const [post, setPost] = React.useState(null);
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const fetchData = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(baseURL);
+      setData(response.data);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-  React.useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setPost(response.data);
-    });
+  useEffect(() => {
+    fetchData();
   }, []);
 
-  if (!post) return null;
+  if (isLoading) return <div>Loading...</div>;
 
+  if (error) return <div>Error: {error.message}</div>;
+
+  if (!data) return null;
+  
+
+  console.log(data.post)
   return (
+    
     <div>
-      <h1>{post.username}</h1>
-      
-    </div>
+    {data.post.map((post, index) => ( // Use map for array iteration
+      <div key={index}>  // Add key prop for efficient rendering
+        <h1>Name: {post.postname}</h1>
+        {/* <h1>Name: {post.data}</h1> */}
+        <img src={post.data} ></img>
+        <h1>description: {post.description} </h1>
+        <h1>comments: {post.comment}</h1>
+      </div>
+    ))}
+  </div>
   );
+  
+};
+// axios({
+//   method: "post",
+//   url: "http://localhost:8093/send",
+//   data: newContact,
+//   headers: { "Content-Type": "application/json" },
+
+// })
+//   .then((response) => {
+//     // setResponse(response.data)
+//     console.log(response.data, 'from post method')
+//   })
+//   .catch(function (error) {
+//     console.log(error, 'this is Error');
+//     // console.log(JSON.stringify(newContact));
+//   });
   // return (
   //   <div className="feed">
   //     <div className="feedWrapper">
@@ -32,4 +74,3 @@ export default function Feed() {
   //     </div>
   //   </div>
   // );
-}
