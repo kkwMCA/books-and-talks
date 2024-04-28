@@ -32,23 +32,18 @@ export default function Feed() {
   if (error) return <div>Error: {error.message}</div>;
 
   if (!data) return null;
-  function traverse_it(obj){
-    for(var prop in obj){
-        if(typeof obj[prop]=='object'){
-            // object
-            traverse_it(obj[prop[i]]);
-        }else{
-            // something else
-            alert('The value of '+prop+' is '+obj[prop]+'.');
-        }
-    }
-}
-  console.log(traverse_it(data))
+  
+
+  console.log(data.post)
   return (
     
     <div>
-      <h1>Name: {data.postname}</h1>
-    </div>
+    {data.post.map((post, index) => ( // Use map for array iteration
+      <div key={index}>  // Add key prop for efficient rendering
+        <h1>Name: {post.postname}</h1>
+      </div>
+    ))}
+  </div>
   );
   
 };
@@ -75,6 +70,3 @@ export default function Feed() {
   //     </div>
   //   </div>
   // );
-{
-{},{}
-}
