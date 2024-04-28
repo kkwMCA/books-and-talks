@@ -15,7 +15,7 @@ create table if not exists post(
     postid number not null unique AUTO_INCREMENT,
     username text not null,
     postname text not null,
-    img text not null,
+    img VARBINARY(MAX) not null,
     description text not null,
     likes number not null,
     primary key(postid)

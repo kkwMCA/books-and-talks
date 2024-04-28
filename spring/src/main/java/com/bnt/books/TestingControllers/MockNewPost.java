@@ -1,16 +1,18 @@
 package com.bnt.books.TestingControllers;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bnt.books.USER.POJO.Post;
 import com.bnt.books.USER.SERVICE.CommentService;
 import com.bnt.books.USER.SERVICE.PostService;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
-import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -62,20 +64,48 @@ public class MockNewPost {
  */
         return hashMap;
     }
+
+    @GetMapping("/api/get")
+    public ResponseEntity<List<Post>> getPosts() {
+        List<Post> list=new ArrayList<>();
+        for (Post i : postService.findAllElements()) {
+            list.add(i);
+        }
+        return ResponseEntity.ok(list);
+    }
+    
     
 
-    @PostMapping("/post")
-    public void postMethodName(@RequestBody HashMap<String,String> addpost) {
+    // @PostMapping("/post")
+    // public void postMethodName(@RequestBody HashMap<String,String> addpost) {
         
+    //     Post post=new Post();
+    //     post.setDescription(addpost.get("desc"));
+    //     post.setPostname(addpost.get("name"));
+    //     post.setImg(addpost.get("data"));
+    //     post.setUsername(addpost.get("username"));
+    //     post.setLikes(Long.parseLong("0"));
+
+    //     postService.save(post);
+    //     post=null;
+    // }
+
+    @PostMapping("/post")
+    public void multipartSee(@RequestParam("image") MultipartFile file,
+                        @RequestParam String postname,
+                        @RequestParam String desc) throws IOException{
+        System.out.println(file.getSize());
+        System.out.println(desc);
+        System.out.println(postname);
         Post post=new Post();
-        post.setDescription(addpost.get("desc"));
-        post.setPostname(addpost.get("name"));
-        post.setImg(addpost.get("data"));
-        post.setUsername(addpost.get("username"));
+        post.setDescription(desc);
+        post.setPostname(postname);
+        post.setImg(file.getBytes());
+        post.setUsername("sumedh");
         post.setLikes(Long.parseLong("0"));
 
         postService.save(post);
+
         post=null;
-    }
-    
+    }    
 }
