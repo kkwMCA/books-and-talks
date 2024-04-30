@@ -56,11 +56,13 @@ export default function Feed() {
     });
   }
 
-  function handleLikes(e) {
+  function handleLikes(e, postId) {
     e.preventDefault();
 
+    console.log(postId);
     const data = new FormData();
-    data.append("id", like);
+    data.append("id", postId); // Assuming postId represents the post's id
+
 
     fetch("http://localhost:8081/like", {
       method: "POST",
@@ -92,11 +94,11 @@ export default function Feed() {
       
         <img src={`data:image/jpeg;base64, ${post.img}`} ></img>
         <p><i>description: {post.description}</i> </p>
-        <form >
-        <button type="submit" name="id" value={post.likes} onClick={(e) => handleLikes(e)}>
-          Likes
-        </button><p>{post.likes}</p>
-    </form>
+        <button type="submit" onClick={(e) => handleLikes(e, post.postid)}>
+      Likes
+    </button>
+    <p>{post.likes}</p>
+    
       </div>
     ))}
   </div>
