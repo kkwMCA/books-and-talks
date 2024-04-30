@@ -101,9 +101,14 @@ public class MockNewPost {
         post=null;
     }    
 
-    @GetMapping("/like")
-    public void getMethodName(@RequestParam("id") Long id) {
-        postService.like(id);
+    @PostMapping("/like")
+    public void getMethodName(@RequestParam("id") String id) {
+        postService.like(Long.parseLong(id));
+    }
+
+    @PostMapping("/dislike")
+    public void getDislike(@RequestParam("id") String id) {
+        postService.dislike(Long.parseLong(id));
     }
     
 }

@@ -70,6 +70,20 @@ export default function Feed() {
     });
   }
 
+  function handleDislikes(e, postId) {
+    e.preventDefault();
+
+    console.log(postId);
+    const data = new FormData();
+    data.append("id", postId); // Assuming postId represents the post's id
+
+
+    fetch("http://localhost:8081/dislike", {
+      method: "POST",
+      body: data,
+    });
+  }
+
   function handleFileChange(e) {
     if (e.target.files && e.target.files[0]) setFile(e.target.files[0]);
   }
@@ -95,9 +109,13 @@ export default function Feed() {
         <img src={`data:image/jpeg;base64, ${post.img}`} ></img>
         <p><i>description: {post.description}</i> </p>
         <button type="submit" onClick={(e) => handleLikes(e, post.postid)}>
-      Likes
+      Like
     </button>
     <p>{post.likes}</p>
+    <button type="submit" onClick={(e) => handleDislikes(e, post.postid)}>
+      Dislike
+    </button>
+    
     
       </div>
     ))}
