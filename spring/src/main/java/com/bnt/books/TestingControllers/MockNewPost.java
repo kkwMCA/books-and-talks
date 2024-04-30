@@ -31,18 +31,10 @@ public class MockNewPost {
     @Autowired
     private CommentService commentService;
 
+    @Deprecated
     @GetMapping("/getAllPost")
     public Object getMethodName() {
-        // System.out.println(postService.findAllElements());
-        // HashMap<Long,Object> hashMap=new HashMap<>();
-        // for (Post i : postService.findAllElements()) {
-        //     HashMap<String,Object> putHash=new HashMap<>();
-        //     putHash.put("postname", i.getPostname());
-        //     putHash.put("data", i.getImg());
-        //     putHash.put("description", i.getDescription());
-        //     putHash.put("comment",commentService.getComment(i.getPostid()));
-        //     hashMap.put(i.getPostid(), putHash);
-        // }
+        
         
         HashMap<String,ArrayList<HashMap<String,Object>>> hashMap=new HashMap<>();
         ArrayList<HashMap<String,Object>> arrayList=new ArrayList<>();
@@ -108,4 +100,10 @@ public class MockNewPost {
 
         post=null;
     }    
+
+    @GetMapping("/like")
+    public void getMethodName(@RequestParam("id") Long id) {
+        postService.like(id);
+    }
+    
 }
