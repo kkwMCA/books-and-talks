@@ -15,6 +15,8 @@ export default function Feed() {
   const [file, setFile] = useState(null);
   const [desc, setDesc] = useState(null);
   const [postname, setPostName] = useState(null);
+
+  const [like, setLike] = useState(null);
   const fetchData = async () => {
     setIsLoading(true);
     try {
@@ -54,6 +56,18 @@ export default function Feed() {
     });
   }
 
+  function handleLikes(e) {
+    e.preventDefault();
+
+    const data = new FormData();
+    data.append("id", like);
+
+    fetch("http://localhost:8081/like", {
+      method: "POST",
+      body: data,
+    });
+  }
+
   function handleFileChange(e) {
     if (e.target.files && e.target.files[0]) setFile(e.target.files[0]);
   }
@@ -71,13 +85,18 @@ export default function Feed() {
     </form>
     <hr>
     </hr>
-    {data.map((post, index) => ( // Use map for array iteration
+    {data.slice().reverse().map((post, index) => (// Use map for array iteration
       <div key={index}>  
-        <h1>Name: {post.postname}</h1>
+        <p><strong>sumedh</strong></p>
+        <h5>{post.postname}</h5>
       
         <img src={`data:image/jpeg;base64, ${post.img}`} ></img>
-        <h1>description: {post.description} </h1>
-        
+        <p><i>description: {post.description}</i> </p>
+        <form >
+        <button type="submit" name="id" value={post.likes} onClick={(e) => handleLikes(e)}>
+          Likes
+        </button><p>{post.likes}</p>
+    </form>
       </div>
     ))}
   </div>
