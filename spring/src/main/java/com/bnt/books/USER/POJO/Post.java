@@ -21,7 +21,8 @@ public class Post {
 
     private String postname;
 
-    private String img;
+    @Lob
+    private byte[] img;
 
     private String description;
 

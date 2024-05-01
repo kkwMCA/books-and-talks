@@ -24,4 +24,22 @@ public class PostService {
     public void save(Post post){
         postRepo.save(post);
     }
+
+    public void like(Long id){
+        Post post=postRepo.findById(id).orElse(null);
+        Long like=post.getLikes();
+        post.setLikes(like+1);
+        postRepo.save(post);
+        post=null;
+        like=null;
+    }
+
+    public void dislike(long id) {
+        Post post=postRepo.findById(id).orElse(null);
+        Long like=post.getLikes();
+        post.setLikes(like-1);
+        postRepo.save(post);
+        post=null;
+        like=null;
+    }
 }

@@ -1,16 +1,22 @@
-import Post from "../post/Post";
-import Share from "../share/Share";
+// import Post from "../post/Post";
+// import Share from "../share/Share";
 import "./feed.css";
 // import { Posts } from "../../dummyData";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const baseURL = "http://localhost:8081/getAllPost";
+const baseURL = "http://localhost:8081/api/get";
 export default function Feed() {
 
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const [file, setFile] = useState(null);
+  const [desc, setDesc] = useState(null);
+  const [postname, setPostName] = useState(null);
+
+  const [like, setLike] = useState(null);
   const fetchData = async () => {
     setIsLoading(true);
     try {
@@ -35,16 +41,82 @@ export default function Feed() {
   
 
   console.log(data.post)
+  
+  function handleForm(e) {
+    e.preventDefault();
+
+    const data = new FormData();
+    data.append("image", file);
+    data.append("postname",postname);
+    data.append("desc",desc)
+
+    fetch("http://localhost:8081/post", {
+      method: "POST",
+      body: data,
+    });
+  }
+
+  function handleLikes(e, postId) {
+    e.preventDefault();
+
+    console.log(postId);
+    const data = new FormData();
+    data.append("id", postId); // Assuming postId represents the post's id
+
+
+    fetch("http://localhost:8081/like", {
+      method: "POST",
+      body: data,
+    });
+  }
+
+  function handleDislikes(e, postId) {
+    e.preventDefault();
+
+    console.log(postId);
+    const data = new FormData();
+    data.append("id", postId); // Assuming postId represents the post's id
+
+
+    fetch("http://localhost:8081/dislike", {
+      method: "POST",
+      body: data,
+    });
+  }
+
+  function handleFileChange(e) {
+    if (e.target.files && e.target.files[0]) setFile(e.target.files[0]);
+  }
   return (
     
     <div>
-    {data.post.map((post, index) => ( // Use map for array iteration
-      <div key={index}>  // Add key prop for efficient rendering
-        <h1>Name: {post.postname}</h1>
-        {/* <h1>Name: {post.data}</h1> */}
-        <img src={post.data} ></img>
-        <h1>description: {post.description} </h1>
-        <h1>comments: {post.comment}</h1>
+   
+    <form >
+    <input type="text" placeholder="enter your postname"  onChange={(e) => {setPostName(e.target.value)}} value ={postname} required />
+    <input type="text" placeholder="enter your description"  onChange={(e) => {setDesc(e.target.value)}} value ={desc} required />
+    <input type="file" name="image" onChange={handleFileChange} />
+    <button type="submit" onClick={(e) => handleForm(e)}>
+          Submit
+        </button>
+    </form>
+    <hr>
+    </hr>
+    {data.slice().reverse().map((post, index) => (// Use map for array iteration
+      <div key={index}>  
+        <p><strong>sumedh</strong></p>
+        <h5>{post.postname}</h5>
+      
+        <img src={`data:image/jpeg;base64, ${post.img}`} ></img>
+        <p><i>description: {post.description}</i> </p>
+        <button type="submit" onClick={(e) => handleLikes(e, post.postid)}>
+      Like
+    </button>
+    <p>{post.likes}</p>
+    <button type="submit" onClick={(e) => handleDislikes(e, post.postid)}>
+      Dislike
+    </button>
+    
+    
       </div>
     ))}
   </div>
