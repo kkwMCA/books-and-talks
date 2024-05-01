@@ -1,7 +1,121 @@
-.feed{
-    flex:5.5
+/* upload */
+
+.container {
+    flex: 2.5;
+    height: calc(100vh - 50px);
+    overflow-y: scroll;
+    position: sticky;
+    padding: 10px;
+    top: 50px;
+  }
+  
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(179, 179, 179);
 }
 
-.feedWrapper{
+  
+  .upload-form {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .upload-form input[type="text"],
+  .upload-form input[type="file"],
+  .upload-form button {
+    display: block;
+    width: calc(100% - 20px); /* Adjusted width to consider padding */
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    box-sizing: border-box; /* Including padding and border in total width */
+  }
+  
+  .upload-form input[type="file"] {
+    padding-top: 12px;
+  }
+  
+  
+  .upload-form button {
+    background-color: #81048d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .upload-form button:hover {
+    background-color: #aa71af;
+  }
+  
+
+
+
+
+
+
+  /* feed.css */
+
+.feed-container {
+    max-width: 800px;
+    margin: auto;
     padding: 20px;
-}
+  }
+  
+  .post-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .post-card h5 {
+    margin-top: 0;
+  }
+  
+  .post-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .post-description {
+    margin-bottom: 10px;
+  }
+  
+  .button-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .like-button,
+  .dislike-button {
+    background-color: #81048d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .like-button:hover,
+  .dislike-button:hover {
+    background-color: #aa71af;
+  }
+  
+  .like-count {
+    margin: 0;
+    font-size: 14px;
+    margin: 10px;
+  }
+  

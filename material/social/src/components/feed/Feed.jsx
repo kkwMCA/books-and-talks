@@ -5,7 +5,7 @@ import "./feed.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const baseURL = "http://localhost:8081/api/get";
+const baseURL = "http://localhost:8081/api/getPost";
 export default function Feed() {
 
   const [data, setData] = useState(null);
@@ -38,17 +38,17 @@ export default function Feed() {
   if (error) return <div>Error: {error.message}</div>;
 
   if (!data) return null;
-  
+
 
   console.log(data.post)
-  
+
   function handleForm(e) {
     e.preventDefault();
 
     const data = new FormData();
     data.append("image", file);
-    data.append("postname",postname);
-    data.append("desc",desc)
+    data.append("postname", postname);
+    data.append("desc", desc)
 
     fetch("http://localhost:8081/post", {
       method: "POST",
@@ -88,61 +88,49 @@ export default function Feed() {
     if (e.target.files && e.target.files[0]) setFile(e.target.files[0]);
   }
   return (
-    
-    <div>
-   
-    <form >
-    <input type="text" placeholder="enter your postname"  onChange={(e) => {setPostName(e.target.value)}} value ={postname} required />
-    <input type="text" placeholder="enter your description"  onChange={(e) => {setDesc(e.target.value)}} value ={desc} required />
-    <input type="file" name="image" onChange={handleFileChange} />
-    <button type="submit" onClick={(e) => handleForm(e)}>
-          Submit
-        </button>
-    </form>
-    <hr>
-    </hr>
-    {data.slice().reverse().map((post, index) => (// Use map for array iteration
-      <div key={index}>  
-        <p><strong>sumedh</strong></p>
-        <h5>{post.postname}</h5>
-      
-        <img src={`data:image/jpeg;base64, ${post.img}`} ></img>
-        <p><i>description: {post.description}</i> </p>
-        <button type="submit" onClick={(e) => handleLikes(e, post.postid)}>
-      Like
-    </button>
-    <p>{post.likes}</p>
-    <button type="submit" onClick={(e) => handleDislikes(e, post.postid)}>
-      Dislike
-    </button>
-    
-    
+    <div className="container">
+      <div className="upload-container">
+        {/* Upload form */}
+        <form className="upload-form">
+          <input
+            type="text"
+            placeholder="Enter your postname"
+            onChange={(e) => { setPostName(e.target.value) }}
+            value={postname}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Enter your description"
+            onChange={(e) => { setDesc(e.target.value) }}
+            value={desc}
+            required
+          />
+          <input
+            type="file"
+            name="image"
+            onChange={handleFileChange}
+          />
+          <button type="submit" onClick={(e) => handleForm(e)}>Add Post</button>
+        </form>
       </div>
-    ))}
-  </div>
-  );
   
-};
-// axios({
-//   method: "post",
-//   url: "http://localhost:8093/send",
-//   data: newContact,
-//   headers: { "Content-Type": "application/json" },
-
-// })
-//   .then((response) => {
-//     // setResponse(response.data)
-//     console.log(response.data, 'from post method')
-//   })
-//   .catch(function (error) {
-//     console.log(error, 'this is Error');
-//     // console.log(JSON.stringify(newContact));
-//   });
-  // return (
-  //   <div className="feed">
-  //     <div className="feedWrapper">
-  //       <Share />
-  //       <p>data.postname</p>
-  //     </div>
-  //   </div>
-  // );
+      <div className="feed-posts">
+        {/* Post rendering */}
+        {data.slice().reverse().map((post, index) => (
+          <div key={index} className="post-card">
+            <p><strong>sumedh</strong></p>
+            <h5>{post.postname}</h5>
+            <img src={`data:image/jpeg;base64, ${post.img}`} alt="Post" className="post-image" />
+            <p className="post-description">Description: {post.description}</p>
+            <div className="button-container">
+              <button className="like-button" onClick={(e) => handleLikes(e, post.postid)}>Like</button>
+              <p className="like-count">{post.likes}</p>
+              <button className="dislike-button" onClick={(e) => handleDislikes(e, post.postid)}>Dislike</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
