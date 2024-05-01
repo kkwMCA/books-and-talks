@@ -5,7 +5,7 @@ import "./feed.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const baseURL = "http://localhost:8081/api/get";
+const baseURL = "/api/get";
 export default function Feed() {
 
   const [data, setData] = useState(null);
@@ -50,7 +50,7 @@ export default function Feed() {
     data.append("postname", postname);
     data.append("desc", desc)
 
-    fetch("http://localhost:8081/post", {
+    fetch("/post", {
       method: "POST",
       body: data,
     });
@@ -64,7 +64,7 @@ export default function Feed() {
     data.append("id", postId); // Assuming postId represents the post's id
 
 
-    fetch("http://localhost:8081/like", {
+    fetch("/like", {
       method: "POST",
       body: data,
     });
@@ -78,7 +78,20 @@ export default function Feed() {
     data.append("id", postId); // Assuming postId represents the post's id
 
 
-    fetch("http://localhost:8081/dislike", {
+    fetch("/dislike", {
+      method: "POST",
+      body: data,
+    });
+  }
+  function handleDownload(e, postId) {
+    e.preventDefault();
+
+    console.log(postId);
+    const data = new FormData();
+    data.append("id", postId); // Assuming postId represents the post's id
+
+
+    fetch("/download", {
       method: "POST",
       body: data,
     });
@@ -120,7 +133,7 @@ export default function Feed() {
         {data.slice().reverse().map((post, index) => (
           <div key={index} className="post-card">
             <div className="user-profile">
-              <img src = "/assets/person/1.jpeg" alt="User" className="user-photo" />
+              <img src = "/assets/person/programmer.png" alt="User" className="user-photo" />
               <p className="user-id">{post.postname}</p>
             </div>
             
@@ -131,7 +144,7 @@ export default function Feed() {
               <p className="like-count">{post.likes}</p>
               <button className="dislike-button" onClick={(e) => handleDislikes(e, post.postid)}>Dislike</button>
 
-              <button className="download-button" onClick={(e) => handleDislikes(e, post.postid)}>Download</button>
+              <button className="download-button" onClick={(e) => handleDownload(e, post.postid)}>Download</button>
             </div>
           </div>
         ))}
