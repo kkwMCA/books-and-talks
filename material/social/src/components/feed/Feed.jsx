@@ -5,7 +5,7 @@ import "./feed.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const baseURL = "http://localhost:8081/api/getPost";
+const baseURL = "http://localhost:8081/api/get";
 export default function Feed() {
 
   const [data, setData] = useState(null);
