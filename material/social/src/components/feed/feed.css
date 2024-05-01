@@ -98,7 +98,8 @@
   }
   
   .like-button,
-  .dislike-button {
+  .dislike-button,
+  .download-button {
     background-color: #81048d;
     color: #fff;
     border: none;
@@ -109,7 +110,8 @@
   }
   
   .like-button:hover,
-  .dislike-button:hover {
+  .dislike-button:hover,
+  .download-button:hover {
     background-color: #aa71af;
   }
   
@@ -117,5 +119,41 @@
     margin: 0;
     font-size: 14px;
     margin: 10px;
+  }
+
+  .download-button {
+    
+    margin-left: 160px;
+  
+  }
+  
+
+
+
+
+
+
+
+
+
+  .user-profile {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-bottom: 15px;
+    
+
+
+  }
+  
+  .user-photo {
+    width: 40px; /* Adjust photo size */
+    height: 40px; /* Adjust photo size */
+    border-radius: 50%; /* Make the photo round */
+    margin-right: 25px; /* Add some space between photo and name */
+  }
+  
+  .user-name {
+    font-size: 12px; /* Adjust font size */
+    font-weight: 100;
   }
   

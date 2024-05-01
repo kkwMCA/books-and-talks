@@ -114,19 +114,24 @@ export default function Feed() {
           <button type="submit" onClick={(e) => handleForm(e)}>Add Post</button>
         </form>
       </div>
-  
+
       <div className="feed-posts">
         {/* Post rendering */}
         {data.slice().reverse().map((post, index) => (
           <div key={index} className="post-card">
-            <p><strong>sumedh</strong></p>
-            <h5>{post.postname}</h5>
+            <div className="user-profile">
+              <img src = "/assets/person/1.jpeg" alt="User" className="user-photo" />
+              <p className="user-id">{post.postname}</p>
+            </div>
+            
             <img src={`data:image/jpeg;base64, ${post.img}`} alt="Post" className="post-image" />
             <p className="post-description">Description: {post.description}</p>
             <div className="button-container">
               <button className="like-button" onClick={(e) => handleLikes(e, post.postid)}>Like</button>
               <p className="like-count">{post.likes}</p>
               <button className="dislike-button" onClick={(e) => handleDislikes(e, post.postid)}>Dislike</button>
+
+              <button className="download-button" onClick={(e) => handleDislikes(e, post.postid)}>Download</button>
             </div>
           </div>
         ))}
