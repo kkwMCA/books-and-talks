@@ -42,4 +42,11 @@ public class PostService {
         post=null;
         like=null;
     }
+
+    public byte[] getData(long id){
+        Post post=postRepo.findById(id).orElse(null);
+        byte[] data=post.getImg();
+        post=null;
+        return data;
+    }
 }

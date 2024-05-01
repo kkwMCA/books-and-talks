@@ -8,15 +8,20 @@ import com.bnt.books.USER.SERVICE.CommentService;
 import com.bnt.books.USER.SERVICE.PostService;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.InputStream;
 import java.util.*;
 
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 
 
@@ -109,6 +114,16 @@ public class MockNewPost {
     @PostMapping("/dislike")
     public void getDislike(@RequestParam("id") String id) {
         postService.dislike(Long.parseLong(id));
+    }
+
+    // @PostMapping("/download")
+    // public ResponseEntity getDownload(@RequestParam("id") String id) {
+    //     return 
+    // }
+    @RequestMapping(value = "/download", method = RequestMethod.GET,produces = MediaType.IMAGE_JPEG_VALUE)
+    public @ResponseBody byte[] getImageAsByteArray(@RequestParam("id") String id) throws IOException {
+     return postService.getData(Long.parseLong(id));
+    
     }
     
 }
