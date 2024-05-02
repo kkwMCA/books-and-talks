@@ -1,5 +1,5 @@
 import "./rightbar.css";
-import { Users } from "../../dummyData";
+import { Users2 } from "../../dummyData";
 import Online from "../online/Online";
 
 export default function Rightbar({ profile }) {
@@ -9,14 +9,14 @@ export default function Rightbar({ profile }) {
         <div className="birthdayContainer">
           <img className="birthdayImg" src="assets/gif.png" alt="" />
           <span className="birthdayText">
-            <b>Pratik Kankarej</b> and <b>3 other friends</b> have a Comment today.
+            <b>Pratik Kankarej, Madhura Ashture, Sumedh Ahire, Sayli Bhor</b> and <b>3 other People</b> are Join <br /> Books & Talks Community
           </span>
         </div>
         <img className="rightbarAd" src="assets/ad.jpeg" alt="" />
         <h4 className="rightbarTitle">Comments</h4>
         <ul className="rightbarFriendList">
-          {Users.map((u) => (
-            <Online key={u.id} user={u} />
+          {Users2.map((u) => (
+            <Online key={u.id} user2={u} />
           ))}
         </ul>
       </>

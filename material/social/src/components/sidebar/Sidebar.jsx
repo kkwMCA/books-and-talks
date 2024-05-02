@@ -16,6 +16,8 @@ import CloseFriend from "../closeFriend/CloseFriend";
 export default function Sidebar() {
   return (
     <div className="sidebar">
+      <button className="sidebarButton">Communities</button>
+
       <div className="sidebarWrapper">
         <ul className="sidebarList">
           <li className="sidebarListItem">
@@ -55,9 +57,11 @@ export default function Sidebar() {
             <span className="sidebarListItemText">My SQL</span>
           </li>
         </ul>
-        <button className="sidebarButton">Communities</button>
+
         <hr className="sidebarHr" />
+        <button className="sidebarButton2">More Communities </button>
         <ul className="sidebarFriendList">
+       
           {Users.map((u) => (
             <CloseFriend key={u.id} user={u} />
           ))}

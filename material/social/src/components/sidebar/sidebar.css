@@ -43,6 +43,18 @@
   padding: 10px;
   border-radius: 5px;
   font-weight: 500;
+  margin: 10px 30px;
+  margin-top: 30px;
+}
+
+.sidebarButton2 {
+  width: 150px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 500;
+  margin: 10px 10px;
+  margin-top: 15px;
 }
 
 .sidebarHr {
@@ -50,9 +62,10 @@
 }
 
 .sidebarFriendList {
-  padding: 0;
+  padding: 20px;
   margin: 0;
   list-style: none;
+  
 }
 
 

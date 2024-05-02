@@ -1,13 +1,13 @@
 import "./online.css";
 
-export default function Online({user}) {
+export default function Online({user2}) {
   return (
     <li className="rightbarFriend">
       <div className="rightbarProfileImgContainer">
-        <img className="rightbarProfileImg" src={user.profilePicture} alt="" />
-        <span className="rightbarOnline"></span>
+        <img className="rightbarProfileImg" src={user2.profilePicture} alt="" />
+        {/* <span className="rightbarOnline"></span> */}
       </div>
-      <span className="rightbarUsername">{user.username}</span>
+      <span className="rightbarUsername">{user2.username}</span>
     </li>
   );
 }

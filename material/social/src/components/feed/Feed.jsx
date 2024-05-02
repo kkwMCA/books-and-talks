@@ -16,7 +16,7 @@ export default function Feed() {
   const [desc, setDesc] = useState(null);
   const [postname, setPostName] = useState(null);
 
-  const [like, setLike] = useState(null);
+  // const [like, setLike] = useState(null);
   const fetchData = async () => {
     setIsLoading(true);
     try {
