@@ -18,6 +18,7 @@ create table if not exists post(
     img VARBINARY(MAX) not null,
     description text not null,
     likes number not null,
+    community text not null,
     primary key(postid)
 );
 
@@ -27,4 +28,11 @@ create table if not exists comment(
     postid number not null unique,
     commentdata text,
     primary key(commentid)
+);
+
+CREATE TABLE IF NOT EXISTS community(
+    commname text not null unique,
+    description text not null,
+    primary key(commname)
+   
 );

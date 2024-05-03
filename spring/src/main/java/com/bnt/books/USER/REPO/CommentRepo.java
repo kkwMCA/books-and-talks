@@ -9,7 +9,5 @@ import java.util.List;
 
 @Repository
 public interface CommentRepo  extends JpaRepository<Comment,Long>{
-    
-
     Comment findByPostid(Long postid);
 }

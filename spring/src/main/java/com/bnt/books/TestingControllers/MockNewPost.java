@@ -70,6 +70,15 @@ public class MockNewPost {
         }
         return ResponseEntity.ok(list);
     }
+
+    @GetMapping("/api/getComm")
+    public ResponseEntity<List<Post>> getCommPosts(@RequestParam String community) {
+        List<Post> list=new ArrayList<>();
+        for (Post i : postService.getCommPost(community)) {
+            list.add(i);
+        }
+        return ResponseEntity.ok(list);
+    }
     
     
 
@@ -90,15 +99,19 @@ public class MockNewPost {
     @PostMapping("/post")
     public void multipartSee(@RequestParam("image") MultipartFile file,
                         @RequestParam String postname,
+                        @RequestParam String community,
                         @RequestParam String desc) throws IOException{
         System.out.println(file.getSize());
         System.out.println(desc);
         System.out.println(postname);
+        System.out.println(community);
+
         Post post=new Post();
         post.setDescription(desc);
         post.setPostname(postname);
         post.setImg(file.getBytes());
         post.setUsername("sumedh");
+        post.setCommunity(community);
         post.setLikes(Long.parseLong("0"));
 
         postService.save(post);

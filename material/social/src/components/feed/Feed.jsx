@@ -15,6 +15,7 @@ export default function Feed() {
   const [file, setFile] = useState(null);
   const [desc, setDesc] = useState(null);
   const [postname, setPostName] = useState(null);
+  const [community, setCommunity] = useState(null);
 
   // const [like, setLike] = useState(null);
   const fetchData = async () => {
@@ -26,6 +27,7 @@ export default function Feed() {
       setError(error);
     } finally {
       setIsLoading(false);
+      
     }
   };
 
@@ -49,11 +51,14 @@ export default function Feed() {
     data.append("image", file);
     data.append("postname", postname);
     data.append("desc", desc)
+    data.append("community", community)
 
+    console.log(data);
     fetch("/post", {
       method: "POST",
       body: data,
     });
+    
   }
 
   function handleLikes(e, postId) {
@@ -153,6 +158,13 @@ export default function Feed() {
             placeholder="Enter your description"
             onChange={(e) => { setDesc(e.target.value) }}
             value={desc}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Enter your Community"
+            onChange={(e) => { setCommunity(e.target.value) }}
+            value={community}
             required
           />
           <input

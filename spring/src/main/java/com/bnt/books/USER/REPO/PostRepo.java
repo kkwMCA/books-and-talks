@@ -11,6 +11,8 @@ import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.Getter;
+import java.util.List;
+
 
 // create table if not exists post(
 //     postid number not null unique,
@@ -24,7 +26,6 @@ import lombok.Getter;
 @Repository
 public interface PostRepo extends JpaRepository<Post,Long>{
     
-
-
+    List<Post> findByCommunity(String community);
 
 }

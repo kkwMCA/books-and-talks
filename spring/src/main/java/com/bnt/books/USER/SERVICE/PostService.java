@@ -12,7 +12,6 @@ import com.bnt.books.USER.REPO.PostRepo;
 @Service
 public class PostService {
     
-
     @Autowired
     private PostRepo postRepo;
 
@@ -48,5 +47,9 @@ public class PostService {
         byte[] data=post.getImg();
         post=null;
         return data;
+    }
+
+    public List<Post> getCommPost(String community){
+        return postRepo.findByCommunity(community);
     }
 }
