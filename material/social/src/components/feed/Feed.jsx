@@ -182,8 +182,10 @@ export default function Feed() {
           <div key={index} className="post-card">
             <div className="user-profile">
               <img src = "/assets/person/programmer.png" alt="User" className="user-photo" />
-              <p className="user-id">{post.postname}</p>
+              <p className="user-id">{post.postname}</p><br></br>
+
             </div>
+            <strong>{post.community}</strong>
             
             <img src={`data:image/jpeg;base64, ${post.img}`} alt="Post" className="post-image" />
             <p className="post-description">Description: {post.description}</p>
