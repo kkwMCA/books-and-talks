@@ -1,7 +1,14 @@
 import "./topbar.css";
 import { Search, Person, Chat, Notifications } from "@material-ui/icons";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Topbar() {
+
+  const [community, setCommunity] = useState(null);
+
+
+ 
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
@@ -10,10 +17,15 @@ export default function Topbar() {
       <div className="topbarCenter">
         <div className="searchbar">
           <Search className="searchIcon" />
+       
           <input
             placeholder="Search for friend, post or video"
             className="searchInput"
+            onChange={(e) => { setCommunity(e.target.value) }}
+            value={community}
           />
+          {/* <button type="submit" onClick={(e) => handleForm(e)}>Add Post</button> */}
+         
         </div>
       </div>
       <div className="topbarRight">

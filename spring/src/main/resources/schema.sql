@@ -1,6 +1,8 @@
 -- userid username noPost profiledesc
 -- 100     sumedh    1      xyz
 
+
+
 create table if not exists users(
     username varchar(100) not null unique AUTO_INCREMENT,
     email varchar(100) not null unique,
@@ -11,12 +13,12 @@ create table if not exists users(
 );
 
 
-create table if not exists post(
+create table if not exists posttable(
     postid number not null unique AUTO_INCREMENT,
     username text not null,
     postname text not null,
     img VARBINARY(MAX) not null,
-    description text not null,
+    description varchar(MAX) not null,
     likes number not null,
     community text not null,
     primary key(postid)
