@@ -19,7 +19,7 @@ export default function Sidebar() {
       <button className="sidebarButton">Communities</button>
 
       <div className="sidebarWrapper">
-        <ul className="sidebarList">
+        <ul className="sidebarList">                
           <li className="sidebarListItem">
             <RssFeed className="sidebarIcon" />
             <span className="sidebarListItemText">Java</span>

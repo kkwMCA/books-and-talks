@@ -1,7 +1,7 @@
 export const Users = [
   {
     id:1,
-    profilePicture: "assets/person/1.jpeg",
+    profilePicture: "assets/person/2.jpg",
     username: "C Language",
   },
   {
