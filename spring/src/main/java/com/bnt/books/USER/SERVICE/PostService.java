@@ -20,6 +20,10 @@ public class PostService {
         return postRepo.findAll();
     }
 
+    public Post get(Long id){
+        return postRepo.findById(id).orElse(null);
+    }
+
     public void save(Post post){
         postRepo.save(post);
     }

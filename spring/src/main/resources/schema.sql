@@ -12,7 +12,7 @@ create table if not exists users(
     primary key(username)
 );
 
-
+--drop table posttable;
 create table if not exists posttable(
     postid number not null unique AUTO_INCREMENT,
     username text not null,
@@ -21,6 +21,7 @@ create table if not exists posttable(
     description varchar(MAX) not null,
     likes number not null,
     community text not null,
+    content text not null,
     primary key(postid)
 );
 

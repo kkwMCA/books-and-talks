@@ -31,4 +31,6 @@ public class Post {
     private Long likes;
 
     private String community;
+
+    private String content;
 }

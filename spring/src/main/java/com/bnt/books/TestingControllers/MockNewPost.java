@@ -105,7 +105,7 @@ public class MockNewPost {
         System.out.println(desc);
         System.out.println(postname);
         System.out.println(community);
-
+        community=community.toLowerCase();
         Post post=new Post();
         post.setDescription(desc);
         post.setPostname(postname);
@@ -113,6 +113,7 @@ public class MockNewPost {
         post.setUsername("sumedh");
         post.setCommunity(community);
         post.setLikes(Long.parseLong("0"));
+        post.setContent(file.getContentType());
 
         postService.save(post);
 
@@ -133,10 +134,22 @@ public class MockNewPost {
     // public ResponseEntity getDownload(@RequestParam("id") String id) {
     //     return 
     // }
-    @RequestMapping(value = "/download", method = RequestMethod.GET,produces = MediaType.IMAGE_JPEG_VALUE)
-    public @ResponseBody byte[] getImageAsByteArray(@RequestParam("id") String id) throws IOException {
-     return postService.getData(Long.parseLong(id));
+    // @RequestMapping(value = "/download", method = RequestMethod.GET,produces ={} MediaType.IMAGE_JPEG_VALUE)
+    // public @ResponseBody byte[] getImageAsByteArray(@RequestParam("id") String id) throws IOException {
+    //  return postService.getData(Long.parseLong(id));
     
+    // }
+
+    @GetMapping("/download")
+    public HashMap<String,Object> getDownload(@RequestParam String id) {
+        HashMap<String,Object> hashMap=new HashMap<>();
+        Post post=postService.get(Long.parseLong(id));
+       
+        hashMap.put("data",post.getImg());
+        hashMap.put("content", post.getContent());
+
+        return hashMap;
     }
+    
     
 }
