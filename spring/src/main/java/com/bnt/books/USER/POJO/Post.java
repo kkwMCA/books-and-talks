@@ -1,5 +1,6 @@
 package com.bnt.books.USER.POJO;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,7 +10,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name="post")
+@Table(name="posttable")
 @Data
 public class Post {
 
@@ -24,6 +25,7 @@ public class Post {
     @Lob
     private byte[] img;
 
+    @Column(name="description")
     private String description;
 
     private Long likes;
